@@ -53,3 +53,31 @@ class Produto{
 const produto = new Produto("Celular", 5000);
 produto.aplicarDesconto(15);
 console.log(produto.detalhes());
+
+/* 
+Enum e Objetos
+Exercício 4
+Crie um enum representando diferentes status de pedidos (Pendente, Em Andamento, Concluído). 
+Depois, crie um objeto Pedido que tenha um número de pedido e um status utilizando esse enum.
+*/
+
+enum StatusPedido{
+    Pendente = "Pendente",
+    EmAndamento = "Em andamento",
+    Concluido = "Concluído"
+}
+
+class Pedido {
+    constructor(public numero: number, public status: StatusPedido) {}
+
+    detalhes(): string{
+        return `Pedido #${this.numero} está com Status: ${this.status}.`;
+    }
+}
+
+const pedido = new Pedido(520, StatusPedido.Pendente);
+const pedido2 = new Pedido(175, StatusPedido.EmAndamento);
+const pedido3 = new Pedido(340, StatusPedido.Concluido);
+console.log(pedido.detalhes());
+console.log(pedido2.detalhes());
+console.log(pedido3.detalhes());
